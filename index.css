@@ -14,7 +14,10 @@
      width: 98%;
 
      margin: 1%;
-     min-height: 4em;
+     min-height: 6em;
+     max-height: 100%;
+     word-wrap: break-word;
+     resize: none;
  }
 
  footer {
