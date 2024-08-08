@@ -40,15 +40,15 @@ async function generateButtons() {
     }
 
     // punctuation
-    Punctuation.appendChild(createButton("󱦐"),"cartouche start")//cartouche start
+    Punctuation.appendChild(createButton("󱦐","cartouche start"))//cartouche start
     // Punctuation.appendChild(createButton("󱦒"))//cartouche middle
-    Punctuation.appendChild(createButton("󱦑"), "cartouche end")//cartouche end
+    Punctuation.appendChild(createButton("󱦑", "cartouche end"))//cartouche end
 
-    Punctuation.appendChild(createButton("󱦓"), "long pi")//long pi start
+    Punctuation.appendChild(createButton("󱦓", "long pi"))//long pi start
     // Punctuation.appendChild(createButton("󱦔"),"long pi extension")//long pi extension
-    Punctuation.appendChild(createButton("󱦜"), "middle dot")//middle dot
-    Punctuation.appendChild(createButton("󱦝"), "colon")//colon
-    Punctuation.appendChild(createButton(" "), "space")//space
+    Punctuation.appendChild(createButton("󱦜", "middle dot"))//middle dot
+    Punctuation.appendChild(createButton("󱦝", "colon"))//colon
+    Punctuation.appendChild(createButton(" ", "space"))//space
     
     // add button groups to buttons
     buttons.appendChild(Punctuation)
