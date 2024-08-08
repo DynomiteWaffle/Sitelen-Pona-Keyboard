@@ -31,8 +31,7 @@ async function generateButtons() {
         if (cat != null && uni != null) {
             // make button
             console.log("build button")
-            const b = createButton(String.fromCodePoint("0x" + uni.substring(2)))
-            b.title = key
+            const b = createButton(String.fromCodePoint("0x" + uni.substring(2)),key)
             if (cat == "core") { Core.appendChild(b) }
             if(cat == "common"){Common.appendChild(b)}
             if(cat == "uncommon"){UnCommon.appendChild(b)}
@@ -41,8 +40,14 @@ async function generateButtons() {
     }
 
     // punctuation
-    Punctuation.appendChild(createButton("󱦐"))
-    Punctuation.appendChild(createButton("󱦑"))
+    Punctuation.appendChild(createButton("󱦐"),"cartouche start")//cartouche start
+    // Punctuation.appendChild(createButton("󱦒"))//cartouche middle
+    Punctuation.appendChild(createButton("󱦑"), "cartouche end")//cartouche end
+
+    Punctuation.appendChild(createButton("󱦓"), "long pi")//long pi start
+    // Punctuation.appendChild(createButton("󱦔 "))//long pi extension
+    Punctuation.appendChild(createButton("󱦜"), "middle dot")//middle dot
+    Punctuation.appendChild(createButton("󱦝"), "colon")//colon
     
     // add button groups to buttons
     buttons.appendChild(Punctuation)
@@ -66,11 +71,12 @@ function backspace() {
 
 }
 
-function createButton(char) {
+function createButton(char,name) {
     const newButton = document.createElement('button')
     newButton.textContent = char
     newButton.style = "font-family: nasinnanpa;"
     newButton.addEventListener('click', () => { write(char); });
+    newButton.title = name
     return newButton
 }
 
