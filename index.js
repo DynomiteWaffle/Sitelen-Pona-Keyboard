@@ -32,6 +32,7 @@ async function generateButtons() {
             // make button
             console.log("build button")
             const b = createButton(String.fromCodePoint("0x" + uni.substring(2)))
+            b.title = key
             if (cat == "core") { Core.appendChild(b) }
             if(cat == "common"){Common.appendChild(b)}
             if(cat == "uncommon"){UnCommon.appendChild(b)}
