@@ -17,13 +17,31 @@ async function generateButtons() {
     
     // get words
     const words = await getwords()
-    console.log(words)
+    // console.log(words)
     // create buttons
-    
+    for (var key in words) {
+        // console.log(key)
+        // get catagory
+        const cat = words[key].usage_category
+        // get unicode
+        const uni = words[key].representations.ucsur
+        // validate
+        // console.log(cat)
+        // console.log(uni)
+        if (cat != null && uni != null) {
+            // make button
+            console.log("build button")
+            const b = createButton(String.fromCodePoint("0x" + uni.substring(2)))
+            if (cat == "core") { Core.appendChild(b) }
+            if(cat == "common"){Common.appendChild(b)}
+            if(cat == "uncommon"){UnCommon.appendChild(b)}
+            if (cat == "obscure") { Obscure.appendChild(b) }
+        }
+    }
+
+    // punctuation
     Punctuation.appendChild(createButton("󱦐"))
     Punctuation.appendChild(createButton("󱦑"))
-
-    Core.appendChild(createButton("󱥫"))
     
     // add button groups to buttons
     buttons.appendChild(Punctuation)
