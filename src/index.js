@@ -1,0 +1,64 @@
+let words
+
+async function generateButtons() {
+    const buttons = document.createElement('div')
+    buttons.className = "SitelenButtons"
+    
+    const Punctuation = document.createElement('div')
+    Punctuation.className="Punctuaton"
+    const Core = document.createElement('div')
+    Core.className="Core"
+    const Common = document.createElement('div')
+    Common.className="Common"
+    const UnCommon = document.createElement('div')
+    UnCommon.className="UnCommon"
+    const Obscure = document.createElement('div')
+    Obscure.className = "Obscure"
+    
+    // get words
+    const words = await getwords()
+    console.log(words)
+    // create buttons
+    
+    Punctuation.appendChild(createButton("󱦐"))
+    Punctuation.appendChild(createButton("󱦑"))
+
+    Core.appendChild(createButton("󱥫"))
+    
+    // add button groups to buttons
+    buttons.appendChild(Punctuation)
+    buttons.appendChild(Core)
+    buttons.appendChild(Common)
+    buttons.appendChild(UnCommon)
+    buttons.appendChild(Obscure)
+    // add to html
+    document.body.appendChild(buttons)
+}
+
+function write(char) {
+    // console.log(char)
+    document.getElementById("textbox").innerHTML+=char
+}
+
+function backspace() {
+    // TODO more advanced backspace - unicode 2 long  - ascii 1 long
+    // current method -2
+    document.getElementById("textbox").innerHTML = document.getElementById("textbox").innerHTML.substring(0, document.getElementById("textbox").innerHTML.length-2)
+
+}
+
+function createButton(char) {
+    const newButton = document.createElement('button')
+    newButton.textContent = char
+    newButton.style = "font-family: nasinnanpa;"
+    newButton.addEventListener('click', () => { write(char); });
+    return newButton
+}
+
+async function getwords() {
+    const res = await fetch("https://raw.githubusercontent.com/lipu-linku/sona/main/api/raw/words.json")
+    // console.log(res.json().then(data => words = data))
+    return await res.json()
+    
+    
+}

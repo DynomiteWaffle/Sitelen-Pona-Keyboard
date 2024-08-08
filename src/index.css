@@ -1,0 +1,13 @@
+ @font-face {
+     font-family: "nasinnanpa";
+     src: url("https://raw.githubusercontent.com/ETBCOR/nasin-nanpa/n4.0.1/versions/nasin-nanpa-4.0.1-UCSUR.otf")
+ }
+
+ .SitelenButtons {
+     font-family: nasinnanpa;
+     size: 40mm;
+ }
+
+ .output {
+     font-family: nasinnanpa;
+ }
