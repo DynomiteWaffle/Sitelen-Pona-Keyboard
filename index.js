@@ -48,7 +48,7 @@ async function generateButtons() {
     // Punctuation.appendChild(createButton("󱦔"),"long pi extension")//long pi extension
     Punctuation.appendChild(createButton("󱦜", "middle dot"))//middle dot
     Punctuation.appendChild(createButton("󱦝", "colon"))//colon
-    Punctuation.appendChild(createButton(" ", "space"))//space
+    // Punctuation.appendChild(createButton(" ", "long pi break"))//space
     
     // add button groups to buttons
     buttons.appendChild(Punctuation)
@@ -57,27 +57,20 @@ async function generateButtons() {
     buttons.appendChild(UnCommon)
     buttons.appendChild(Obscure)
     // add to html
-    document.body.appendChild(buttons)
+    document.getElementById("buttons").appendChild(buttons)
 }
 
 function write(char) {
     // console.log(char)
-    document.getElementById("textbox").innerHTML+=char
-}
-
-function backspace() {
-    // TODO more advanced backspace - unicode 2 long  - ascii 1 long
-    // current method -2
-    document.getElementById("textbox").innerHTML = document.getElementById("textbox").innerHTML.substring(0, document.getElementById("textbox").innerHTML.length-2)
-
+    document.getElementById("textbox").value+=char
 }
 
 function createButton(char,name) {
     const newButton = document.createElement('button')
     newButton.textContent = char
-    newButton.style = "font-family: nasinnanpa;"
     newButton.addEventListener('click', () => { write(char); });
     newButton.title = name
+    newButton.className = "button"
     return newButton
 }
 
