@@ -3,29 +3,35 @@
      src: url("https://raw.githubusercontent.com/ETBCOR/nasin-nanpa/n4.0.1/versions/nasin-nanpa-4.0.1-UCSUR.otf")
  }
 
- .SitelenButtons {
-     font-family: nasinnanpa;
+ body {
+     width: 98%;
+     padding: 1%;
+     margin-left: auto;
+     margin-right: auto;
+     background-color: black;
+     color: white;
  }
 
  #textbox {
-     /* TODO text wraping */
+     width: 98%;
+     position: fixed;
+     top: 1%;
      font-family: nasinnanpa;
      font-size: 200%;
-     width: 98%;
-
-     margin: 1%;
-     min-height: 6em;
-     max-height: 100%;
+     height: 6em;
      word-wrap: break-word;
      resize: none;
+     background-color: rgb(100, 100, 100);
+     color: white;
  }
 
- footer {
-     position: relative;
-     bottom: 0;
-     margin: 1%;
-
+ #textboxspacer {
+     padding-top: 1%;
+     font-size: 200%;
+     height: 6em;
  }
+
+
 
  .button {
      font-family: nasinnanpa;
@@ -33,31 +39,40 @@
      width: 1.5em;
      height: 1.5em;
      margin: 0.1em;
+     background-color: rgb(70, 70, 70);
+     color: white;
  }
 
  .Punctuaton {
      background-color: gray;
-     margin: 1%;
+     margin-bottom: 1%;
+
  }
 
  .Core {
      background-color: gold;
-     margin: 1%;
  }
 
  .Common {
      background-color: brown;
-     margin: 1%;
  }
 
  .UnCommon {
      background-color: darkmagenta;
-     margin: 1%;
  }
 
  .Obscure {
      background-color: darkviolet;
-     margin: 1%;
+ }
+
+
+
+ #spacer {
+     height: 6em;
+ }
+
+ footer {
+     position: relative;
  }
 
  @media only screen and (max-width: 600px) {
