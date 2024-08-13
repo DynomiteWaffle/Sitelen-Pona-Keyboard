@@ -75,6 +75,13 @@
      position: relative;
  }
 
+ .center {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 6em;
+ }
+
  @media only screen and (max-width: 600px) {
 
      .button {
