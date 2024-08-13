@@ -49,6 +49,8 @@ async function generateButtons() {
     Punctuation.appendChild(createButton("󱦜", "middle dot"))//middle dot
     Punctuation.appendChild(createButton("󱦝", "colon"))//colon
     // Punctuation.appendChild(createButton(" ", "long pi break"))//space
+    Punctuation.appendChild(createButton("󱦘", "long glyph end"))//space
+    // F1998
     
     // add button groups to buttons
     buttons.appendChild(Punctuation)
