@@ -5,15 +5,11 @@ async function generateButtons() {
     buttons.className = "SitelenButtons"
     
     const Punctuation = document.createElement('div')
-    Punctuation.className="Punctuaton"
-    const Core = document.createElement('div')
-    Core.className="Core"
-    const Common = document.createElement('div')
-    Common.className="Common"
-    const UnCommon = document.createElement('div')
-    UnCommon.className="UnCommon"
-    const Obscure = document.createElement('div')
-    Obscure.className = "Obscure"
+    Punctuation.className = "Punctuaton"
+    
+    const IDEOGRAPH = document.createElement('div')
+    IDEOGRAPH.className = "Ideograph"
+
     
     // get words
     const words = await getwords()
@@ -77,8 +73,13 @@ function createButton(char,name) {
 }
 
 async function getwords() {
-    const res = await fetch("https://raw.githubusercontent.com/lipu-linku/sona/main/api/raw/words.json")
+    const res = await fetch("https://www.kreativekorp.com/ucsur/UNIDATA/UnicodeData.txt")
+    // prosses csv
+    // only get lines with SITELEN PONA
+    // turn into json or make json object
+
     // console.log(res.json().then(data => words = data))
+    console.log(res)
     return await res.json()
     
     
