@@ -16,38 +16,52 @@ async function generateButtons() {
     const words = await getwords()
     // console.log(words)
     // create buttons
-    for (var key in words) {
-        // console.log(key)
-        // get catagory
-        const cat = words[key].usage_category
-        // get unicode
-        const uni = words[key].representations.ucsur
-        // validate
-        // console.log(cat)
-        // console.log(uni)
-        if (cat != null && uni != null) {
-            // make button
-            console.log("build button")
-            const b = createButton(String.fromCodePoint("0x" + uni.substring(2)),key)
-            if (cat == "core") { Core.appendChild(b) }
-            if(cat == "common"){Common.appendChild(b)}
-            if(cat == "uncommon"){UnCommon.appendChild(b)}
-            if (cat == "obscure") { Obscure.appendChild(b) }
+    for (const element of words) {
+        console.log(element)
+        const b = createButton(String.fromCodePoint("0x" + element.uscr), element.name)
+
+
+
+        if (element.type == "Ideograph") {
+            Ideograph.appendChild(b)
+        } else {
+            Punctuation.appendChild(b)
         }
+
     }
 
+    // for (var key in words) {
+    //     // console.log(key)
+    //     // get catagory
+    //     const cat = words[key].usage_category
+    //     // get unicode
+    //     const uni = words[key].representations.ucsur
+    //     // validate
+    //     // console.log(cat)
+    //     // console.log(uni)
+    //     if (cat != null && uni != null) {
+    //         // make button
+    //         console.log("build button")
+    //         const b = createButton(String.fromCodePoint("0x" + uni.substring(2)),key)
+    //         if (cat == "core") { Core.appendChild(b) }
+    //         if(cat == "common"){Common.appendChild(b)}
+    //         if(cat == "uncommon"){UnCommon.appendChild(b)}
+    //         if (cat == "obscure") { Obscure.appendChild(b) }
+    //     }
+    // }
+
     // punctuation
-    Punctuation.appendChild(createButton("󱦐","cartouche start"))//cartouche start
-    // Punctuation.appendChild(createButton("󱦒"))//cartouche middle
-    Punctuation.appendChild(createButton("󱦑", "cartouche end"))//cartouche end
+    // Punctuation.appendChild(createButton("󱦐","cartouche start"))//cartouche start
+    // // Punctuation.appendChild(createButton("󱦒"))//cartouche middle
+    // Punctuation.appendChild(createButton("󱦑", "cartouche end"))//cartouche end
 
-    Punctuation.appendChild(createButton("󱦓", "long pi"))//long pi start
-    // Punctuation.appendChild(createButton("󱦔"),"long pi extension")//long pi extension
-    Punctuation.appendChild(createButton("󱦜", "middle dot"))//middle dot
-    Punctuation.appendChild(createButton("󱦝", "colon"))//colon
+    // Punctuation.appendChild(createButton("󱦓", "long pi"))//long pi start
+    // // Punctuation.appendChild(createButton("󱦔"),"long pi extension")//long pi extension
+    // Punctuation.appendChild(createButton("󱦜", "middle dot"))//middle dot
+    // Punctuation.appendChild(createButton("󱦝", "colon"))//colon
 
-    Punctuation.appendChild(createButton("󱦘", "long glyph end"))//seperator
-    Punctuation.appendChild(createButton("‍", "glyph join"))//joiner
+    // Punctuation.appendChild(createButton("󱦘", "long glyph end"))//seperator
+    // Punctuation.appendChild(createButton("‍", "glyph join"))//joiner
     
     // add button groups to buttons
     buttons.appendChild(Punctuation)
@@ -71,16 +85,9 @@ function createButton(char,name) {
 }
 
 async function getwords() {
-    // const res = $.getJSON("file:///./KKConverter/sitelen.json")
-
     const res = await fetch("./KKConverter/sitelen.json")
-    // prosses csv
-    // only get lines with SITELEN PONA
-    // turn into json or make json object
-
-    // console.log(res.json().then(data => words = data))
-    console.log(res)
-    // return await res.json()
+    // console.log(res)
+    return await res.json()
     
     
 }
